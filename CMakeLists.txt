@@ -21,7 +21,7 @@ set(MYPROJECT_SRCS
 
 set(MYPROJECT_executable_SRCS
         ${CMAKE_CURRENT_SOURCE_DIR}/main.cpp
-        )
+        verlet.h verlet.cpp)
 
 add_subdirectory(tests)
 
