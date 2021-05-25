@@ -21,5 +21,5 @@ TEST(VerletTest, BasicAssertions) {
         verlet_step1(x, y, z, vx, vy, vz, 0., 0., f, timestep);
         verlet_step2(vx, vy, vz, 0., 0., f, 0.1);
     }
-    EXPECT_NEAR(z, 0.5*f*pow(timestep*nb_steps,2.), 1e-100);
+    EXPECT_NEAR(z, 0.5*f*pow(timestep*nb_steps,2.), 1e-6);
 }
