@@ -1,25 +1,27 @@
 //
-// Created by schue on 25.05.2021.
+// Created by Robert Schütze on 25.05.2021.
 //
 #include <gtest/gtest.h>
-#include <math.h>
 #include "verlet.h"
 #include "verlet.cpp"
 
-// Demonstrate some basic assertions.
 TEST(VerletTest, BasicAssertions) {
-    double x = 0.;
-    double y = 0.;
-    double z = 0.;
-    double vx = 0.;
-    double vy = 0.;
-    double vz = 0.;
-    double timestep = 0.1;
-    int nb_steps = 100;
-    double f = 1.;
-    for (int i = 0; i < nb_steps; ++i) {
-        verlet_step1(x, y, z, vx, vy, vz, 0., 0., f, timestep);
-        verlet_step2(vx, vy, vz, 0., 0., f, 0.1);
+    int n_atoms = 100;
+    Positions_t p = Positions_t::Random(3,n_atoms);
+    Positions_t p0 = p;
+    Velocities_t v = Velocities_t::Random(3,n_atoms);
+    Velocities_t v0 = v;
+    Forces_t f = Forces_t::Random(3,n_atoms);
+    double timestep = 0.01;
+    int nb_steps = 10000;
+     for (int i = 0; i < nb_steps; ++i) {
+        verlet_step1(p, v, f, timestep);
+        verlet_step2(v, f, timestep);
     }
-    EXPECT_NEAR(z, 0.5*f*pow(timestep*nb_steps,2.), 1e-6);
+     double t = timestep*nb_steps;
+     for(int dim = 0; dim<3; dim++){
+         for(int atom = 0; atom<n_atoms; atom++){
+             EXPECT_NEAR(p(dim,atom), p0(dim,atom)+v0(dim,atom)*t+0.5*f(dim,atom)*t*t, 1e-6);
+         }
+     }
 }
