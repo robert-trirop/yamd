@@ -3,5 +3,6 @@
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/build/external/Eigen3" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/cmake-build-debug/external/Eigen3" vcs="Git" />
   </component>
 </project>
