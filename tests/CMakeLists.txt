@@ -8,7 +8,7 @@ FetchContent_MakeAvailable(googletest)
 set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 
 set(myproject_tests_SRCS
-        verlet_test.cpp)
+        test_verlet.cpp)
 
 # Tests
 include_directories(yamd_tests ${CMAKE_SOURCE_DIR})

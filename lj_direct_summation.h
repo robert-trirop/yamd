@@ -20,17 +20,18 @@
 * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
-*
+* 
 * (Created by Robert Schütze on 25.05.2021.)
 */
 
-#include <Eigen/Dense>
 
-#ifndef MYPROJECT_TYPES_H
-#define MYPROJECT_TYPES_H
+#ifndef MYPROJECT_LJ_DIRECT_SUMMATION_H
+#define MYPROJECT_LJ_DIRECT_SUMMATION_H
 
-using Positions_t = Eigen::Array3Xd;
-using Velocities_t = Eigen::Array3Xd;
-using Forces_t = Eigen::Array3Xd;
+#include "lj_direct_summation.cpp"
+#include "atoms.h"
+#include "cmath"
 
-#endif //MYPROJECT_TYPES_H
+double lj_direct_summation(Atoms &atoms, double epsilon = 1.0, double sigma = 1.0);
+
+#endif //MYPROJECT_LJ_DIRECT_SUMMATION_H

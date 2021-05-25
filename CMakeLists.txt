@@ -21,7 +21,7 @@ set(MYPROJECT_SRCS
 
 set(MYPROJECT_executable_SRCS
         ${CMAKE_CURRENT_SOURCE_DIR}/main.cpp
-        verlet.h verlet.cpp types.h)
+        verlet.h verlet.cpp types.h atoms.h lj_direct_summation.h lj_direct_summation.cpp)
 
 add_subdirectory(tests)
 
