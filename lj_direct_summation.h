@@ -28,7 +28,6 @@
 #ifndef MYPROJECT_LJ_DIRECT_SUMMATION_H
 #define MYPROJECT_LJ_DIRECT_SUMMATION_H
 
-#include "lj_direct_summation.cpp"
 #include "atoms.h"
 #include "cmath"
 

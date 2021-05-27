@@ -24,7 +24,7 @@
 
 #include <gtest/gtest.h>
 #include "verlet.h"
-//#include "verlet.cpp"
+
 
 TEST(VerletTest, BasicAssertions) {
     int n_atoms = 100;

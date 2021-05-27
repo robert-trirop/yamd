@@ -12,15 +12,15 @@ add_external_package(Eigen3 VERSION 3.4.0 CONFIG)
 set(MYPROJECT_HDRS
         # Add header files here
         ${CMAKE_CURRENT_SOURCE_DIR}/verlet.h
-        types.h
-        atoms.h
-        lj_direct_summation.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/types.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/atoms.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/lj_direct_summation.h
         )
 
 set(MYPROJECT_SRCS
         # Add source files here
         ${CMAKE_CURRENT_SOURCE_DIR}/verlet.cpp
-        lj_direct_summation.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/lj_direct_summation.cpp
         )
 
 set(MYPROJECT_executable_SRCS
