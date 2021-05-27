@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.11)
 
-project(myproject)
+project(MYPROJECT)
 
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 set(CMAKE_CXX_STANDARD 17)
@@ -30,5 +30,5 @@ set(MYPROJECT_executable_SRCS
 add_subdirectory(tests)
 
 # Simulation code
-add_executable(myproject ${MYPROJECT_SRCS} ${MYPROJECT_HDRS} ${MYPROJECT_executable_SRCS})
-target_link_libraries(myproject PUBLIC Eigen3::Eigen)
+add_executable(MYPROJECT ${MYPROJECT_SRCS} ${MYPROJECT_HDRS} ${MYPROJECT_executable_SRCS})
+target_link_libraries(MYPROJECT PUBLIC Eigen3::Eigen)
