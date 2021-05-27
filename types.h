@@ -26,11 +26,11 @@
 
 #include <Eigen/Dense>
 
-#ifndef MYPROJECT_TYPES_H
-#define MYPROJECT_TYPES_H
+#ifndef YAMD_TYPES_H
+#define YAMD_TYPES_H
 
 using Positions_t = Eigen::Array3Xd;
 using Velocities_t = Eigen::Array3Xd;
 using Forces_t = Eigen::Array3Xd;
 
-#endif //MYPROJECT_TYPES_H
+#endif //YAMD_TYPES_H

@@ -123,8 +123,8 @@
 					<DistClean command="/usr/bin/make -j8 -f &quot;/home/trirop/yamd/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="MYPROJECT_tests">
-				<Option output="/home/trirop/yamd/cmake-build-debug/tests/MYPROJECT_tests" prefix_auto="0" extension_auto="0"/>
+			<Target title="YAMD_tests">
+				<Option output="/home/trirop/yamd/cmake-build-debug/tests/YAMD_tests" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/home/trirop/yamd/cmake-build-debug/tests"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
@@ -144,14 +144,14 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/trirop/yamd/cmake-build-debug/tests/Makefile&quot;  VERBOSE=1 MYPROJECT_tests"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/trirop/yamd/cmake-build-debug/tests/Makefile&quot;  VERBOSE=1 YAMD_tests"/>
 					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/trirop/yamd/cmake-build-debug/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -j8 -f &quot;/home/trirop/yamd/cmake-build-debug/tests/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/usr/bin/make -j8 -f &quot;/home/trirop/yamd/cmake-build-debug/tests/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="MYPROJECT_tests/fast">
-				<Option output="/home/trirop/yamd/cmake-build-debug/tests/MYPROJECT_tests" prefix_auto="0" extension_auto="0"/>
+			<Target title="YAMD_tests/fast">
+				<Option output="/home/trirop/yamd/cmake-build-debug/tests/YAMD_tests" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/home/trirop/yamd/cmake-build-debug/tests"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
@@ -171,7 +171,7 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/trirop/yamd/cmake-build-debug/tests/Makefile&quot;  VERBOSE=1 MYPROJECT_tests/fast"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/trirop/yamd/cmake-build-debug/tests/Makefile&quot;  VERBOSE=1 YAMD_tests/fast"/>
 					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/trirop/yamd/cmake-build-debug/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -j8 -f &quot;/home/trirop/yamd/cmake-build-debug/tests/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/usr/bin/make -j8 -f &quot;/home/trirop/yamd/cmake-build-debug/tests/Makefile&quot;  VERBOSE=1 clean"/>
@@ -380,7 +380,6 @@
 		</Build>
 		<Unit filename="/home/trirop/yamd/atoms.h">
 			<Option target="MYPROJECT"/>
-			<Option target="MYPROJECT_tests"/>
 		</Unit>
 		<Unit filename="/home/trirop/yamd/cmake-build-debug/_deps/googletest-src/googlemock/src/gmock-all.cc">
 			<Option target="gmock"/>
@@ -396,29 +395,24 @@
 		</Unit>
 		<Unit filename="/home/trirop/yamd/lj_direct_summation.cpp">
 			<Option target="MYPROJECT"/>
-			<Option target="MYPROJECT_tests"/>
 		</Unit>
 		<Unit filename="/home/trirop/yamd/lj_direct_summation.h">
 			<Option target="MYPROJECT"/>
-			<Option target="MYPROJECT_tests"/>
 		</Unit>
 		<Unit filename="/home/trirop/yamd/main.cpp">
 			<Option target="MYPROJECT"/>
 		</Unit>
 		<Unit filename="/home/trirop/yamd/tests/test_verlet.cpp">
-			<Option target="MYPROJECT_tests"/>
+			<Option target="YAMD_tests"/>
 		</Unit>
 		<Unit filename="/home/trirop/yamd/types.h">
 			<Option target="MYPROJECT"/>
-			<Option target="MYPROJECT_tests"/>
 		</Unit>
 		<Unit filename="/home/trirop/yamd/verlet.cpp">
 			<Option target="MYPROJECT"/>
-			<Option target="MYPROJECT_tests"/>
 		</Unit>
 		<Unit filename="/home/trirop/yamd/verlet.h">
 			<Option target="MYPROJECT"/>
-			<Option target="MYPROJECT_tests"/>
 		</Unit>
 		<Unit filename="/home/trirop/yamd/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>

@@ -25,12 +25,12 @@
 */
 
 
-#ifndef MYPROJECT_LJ_DIRECT_SUMMATION_H
-#define MYPROJECT_LJ_DIRECT_SUMMATION_H
+#ifndef YAMD_LJ_DIRECT_SUMMATION_H
+#define YAMD_LJ_DIRECT_SUMMATION_H
 
 #include "atoms.h"
 #include "cmath"
 
 double lj_direct_summation(Atoms &atoms, double epsilon = 1.0, double sigma = 1.0);
 
-#endif //MYPROJECT_LJ_DIRECT_SUMMATION_H
+#endif //YAMD_LJ_DIRECT_SUMMATION_H

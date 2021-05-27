@@ -33,7 +33,7 @@ TEST(VerletTest, BasicAssertions) {
     Velocities_t v = Velocities_t::Random(3,n_atoms);
     Velocities_t v0 = v;
     Forces_t f = Forces_t::Random(3,n_atoms);
-    double timestep = 0.01;
+    double timestep = 0.1;
     int nb_steps = 10000;
     for (int i = 0; i < nb_steps; ++i) {
         verlet_step1(p, v, f, timestep);

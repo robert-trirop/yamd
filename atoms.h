@@ -25,8 +25,8 @@
 */
 
 
-#ifndef MYPROJECT_ATOMS_H
-#define MYPROJECT_ATOMS_H
+#ifndef YAMD_ATOMS_H
+#define YAMD_ATOMS_H
 
 #include "types.h"
 
@@ -53,4 +53,4 @@ public:
     }
 };
 
-#endif //MYPROJECT_ATOMS_H
+#endif //YAMD_ATOMS_H
