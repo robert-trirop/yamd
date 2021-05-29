@@ -20,29 +20,18 @@
 * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
+*
+* (Created by Robert Schütze on 25.05.2021.)
 */
 
-#include <gtest/gtest.h>
-#include "HeaderFiles/verlet.h"
+#include <Eigen/Dense>
 
+#ifndef YAMD_TYPES_H
+#define YAMD_TYPES_H
 
-TEST(VerletTest, BasicAssertions) {
-    int n_atoms = 100;
-    Positions_t p = Positions_t::Random(3,n_atoms);
-    Positions_t p0 = p;
-    Velocities_t v = Velocities_t::Random(3,n_atoms);
-    Velocities_t v0 = v;
-    Forces_t f = Forces_t::Random(3,n_atoms);
-    double timestep = 0.1;
-    int nb_steps = 10000;
-    for (int i = 0; i < nb_steps; ++i) {
-        verlet_step1(p, v, f, timestep);
-        verlet_step2(v, f, timestep);
-    }
-    double t = timestep*nb_steps;
-    for(int dim = 0; dim<3; dim++){
-        for(int atom = 0; atom<n_atoms; atom++){
-            EXPECT_NEAR(p(dim,atom), p0(dim,atom)+v0(dim,atom)*t+0.5*f(dim,atom)*t*t, 1e-6);
-        }
-    }
-}
+using Positions_t = Eigen::Array3Xd;
+using Velocities_t = Eigen::Array3Xd;
+using Forces_t = Eigen::Array3Xd;
+using Vector_t = Eigen::Array3d;
+
+#endif //YAMD_TYPES_H

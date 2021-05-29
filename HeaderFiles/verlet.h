@@ -24,13 +24,13 @@
 * (Created by Robert Schütze on 25.05.2021.)
 */
 
-#include <Eigen/Dense>
+#ifndef __VERLET_H
+#define __VERLET_H
 
-#ifndef YAMD_TYPES_H
-#define YAMD_TYPES_H
+#include "types.h"
 
-using Positions_t = Eigen::Array3Xd;
-using Velocities_t = Eigen::Array3Xd;
-using Forces_t = Eigen::Array3Xd;
+void verlet_step1(Positions_t &positions, Velocities_t &velocities,
+                  const Forces_t &forces, double timestep);
+void verlet_step2(Velocities_t &velocities, const Forces_t &forces, double timestep);
 
-#endif //YAMD_TYPES_H
+#endif  // __VERLET_H

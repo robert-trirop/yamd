@@ -57,31 +57,31 @@ include tests/CMakeFiles/YAMD_tests.dir/progress.make
 # Include the compile flags for this target's objects.
 include tests/CMakeFiles/YAMD_tests.dir/flags.make
 
-tests/CMakeFiles/YAMD_tests.dir/__/verlet.cpp.o: tests/CMakeFiles/YAMD_tests.dir/flags.make
-tests/CMakeFiles/YAMD_tests.dir/__/verlet.cpp.o: ../verlet.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/trirop/yamd/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object tests/CMakeFiles/YAMD_tests.dir/__/verlet.cpp.o"
-	cd /home/trirop/yamd/cmake-build-debug/tests && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/YAMD_tests.dir/__/verlet.cpp.o -c /home/trirop/yamd/verlet.cpp
+tests/CMakeFiles/YAMD_tests.dir/__/SourceFiles/verlet.cpp.o: tests/CMakeFiles/YAMD_tests.dir/flags.make
+tests/CMakeFiles/YAMD_tests.dir/__/SourceFiles/verlet.cpp.o: ../SourceFiles/verlet.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/trirop/yamd/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object tests/CMakeFiles/YAMD_tests.dir/__/SourceFiles/verlet.cpp.o"
+	cd /home/trirop/yamd/cmake-build-debug/tests && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/YAMD_tests.dir/__/SourceFiles/verlet.cpp.o -c /home/trirop/yamd/SourceFiles/verlet.cpp
 
-tests/CMakeFiles/YAMD_tests.dir/__/verlet.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/YAMD_tests.dir/__/verlet.cpp.i"
-	cd /home/trirop/yamd/cmake-build-debug/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/trirop/yamd/verlet.cpp > CMakeFiles/YAMD_tests.dir/__/verlet.cpp.i
+tests/CMakeFiles/YAMD_tests.dir/__/SourceFiles/verlet.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/YAMD_tests.dir/__/SourceFiles/verlet.cpp.i"
+	cd /home/trirop/yamd/cmake-build-debug/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/trirop/yamd/SourceFiles/verlet.cpp > CMakeFiles/YAMD_tests.dir/__/SourceFiles/verlet.cpp.i
 
-tests/CMakeFiles/YAMD_tests.dir/__/verlet.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/YAMD_tests.dir/__/verlet.cpp.s"
-	cd /home/trirop/yamd/cmake-build-debug/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/trirop/yamd/verlet.cpp -o CMakeFiles/YAMD_tests.dir/__/verlet.cpp.s
+tests/CMakeFiles/YAMD_tests.dir/__/SourceFiles/verlet.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/YAMD_tests.dir/__/SourceFiles/verlet.cpp.s"
+	cd /home/trirop/yamd/cmake-build-debug/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/trirop/yamd/SourceFiles/verlet.cpp -o CMakeFiles/YAMD_tests.dir/__/SourceFiles/verlet.cpp.s
 
-tests/CMakeFiles/YAMD_tests.dir/__/lj_direct_summation.cpp.o: tests/CMakeFiles/YAMD_tests.dir/flags.make
-tests/CMakeFiles/YAMD_tests.dir/__/lj_direct_summation.cpp.o: ../lj_direct_summation.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/trirop/yamd/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object tests/CMakeFiles/YAMD_tests.dir/__/lj_direct_summation.cpp.o"
-	cd /home/trirop/yamd/cmake-build-debug/tests && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/YAMD_tests.dir/__/lj_direct_summation.cpp.o -c /home/trirop/yamd/lj_direct_summation.cpp
+tests/CMakeFiles/YAMD_tests.dir/__/SourceFiles/lj_direct_summation.cpp.o: tests/CMakeFiles/YAMD_tests.dir/flags.make
+tests/CMakeFiles/YAMD_tests.dir/__/SourceFiles/lj_direct_summation.cpp.o: ../SourceFiles/lj_direct_summation.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/trirop/yamd/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object tests/CMakeFiles/YAMD_tests.dir/__/SourceFiles/lj_direct_summation.cpp.o"
+	cd /home/trirop/yamd/cmake-build-debug/tests && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/YAMD_tests.dir/__/SourceFiles/lj_direct_summation.cpp.o -c /home/trirop/yamd/SourceFiles/lj_direct_summation.cpp
 
-tests/CMakeFiles/YAMD_tests.dir/__/lj_direct_summation.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/YAMD_tests.dir/__/lj_direct_summation.cpp.i"
-	cd /home/trirop/yamd/cmake-build-debug/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/trirop/yamd/lj_direct_summation.cpp > CMakeFiles/YAMD_tests.dir/__/lj_direct_summation.cpp.i
+tests/CMakeFiles/YAMD_tests.dir/__/SourceFiles/lj_direct_summation.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/YAMD_tests.dir/__/SourceFiles/lj_direct_summation.cpp.i"
+	cd /home/trirop/yamd/cmake-build-debug/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/trirop/yamd/SourceFiles/lj_direct_summation.cpp > CMakeFiles/YAMD_tests.dir/__/SourceFiles/lj_direct_summation.cpp.i
 
-tests/CMakeFiles/YAMD_tests.dir/__/lj_direct_summation.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/YAMD_tests.dir/__/lj_direct_summation.cpp.s"
-	cd /home/trirop/yamd/cmake-build-debug/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/trirop/yamd/lj_direct_summation.cpp -o CMakeFiles/YAMD_tests.dir/__/lj_direct_summation.cpp.s
+tests/CMakeFiles/YAMD_tests.dir/__/SourceFiles/lj_direct_summation.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/YAMD_tests.dir/__/SourceFiles/lj_direct_summation.cpp.s"
+	cd /home/trirop/yamd/cmake-build-debug/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/trirop/yamd/SourceFiles/lj_direct_summation.cpp -o CMakeFiles/YAMD_tests.dir/__/SourceFiles/lj_direct_summation.cpp.s
 
 tests/CMakeFiles/YAMD_tests.dir/test_verlet.cpp.o: tests/CMakeFiles/YAMD_tests.dir/flags.make
 tests/CMakeFiles/YAMD_tests.dir/test_verlet.cpp.o: ../tests/test_verlet.cpp
@@ -96,24 +96,39 @@ tests/CMakeFiles/YAMD_tests.dir/test_verlet.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/YAMD_tests.dir/test_verlet.cpp.s"
 	cd /home/trirop/yamd/cmake-build-debug/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/trirop/yamd/tests/test_verlet.cpp -o CMakeFiles/YAMD_tests.dir/test_verlet.cpp.s
 
+tests/CMakeFiles/YAMD_tests.dir/test_lj_direct_summation.cpp.o: tests/CMakeFiles/YAMD_tests.dir/flags.make
+tests/CMakeFiles/YAMD_tests.dir/test_lj_direct_summation.cpp.o: ../tests/test_lj_direct_summation.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/trirop/yamd/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object tests/CMakeFiles/YAMD_tests.dir/test_lj_direct_summation.cpp.o"
+	cd /home/trirop/yamd/cmake-build-debug/tests && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/YAMD_tests.dir/test_lj_direct_summation.cpp.o -c /home/trirop/yamd/tests/test_lj_direct_summation.cpp
+
+tests/CMakeFiles/YAMD_tests.dir/test_lj_direct_summation.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/YAMD_tests.dir/test_lj_direct_summation.cpp.i"
+	cd /home/trirop/yamd/cmake-build-debug/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/trirop/yamd/tests/test_lj_direct_summation.cpp > CMakeFiles/YAMD_tests.dir/test_lj_direct_summation.cpp.i
+
+tests/CMakeFiles/YAMD_tests.dir/test_lj_direct_summation.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/YAMD_tests.dir/test_lj_direct_summation.cpp.s"
+	cd /home/trirop/yamd/cmake-build-debug/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/trirop/yamd/tests/test_lj_direct_summation.cpp -o CMakeFiles/YAMD_tests.dir/test_lj_direct_summation.cpp.s
+
 # Object files for target YAMD_tests
 YAMD_tests_OBJECTS = \
-"CMakeFiles/YAMD_tests.dir/__/verlet.cpp.o" \
-"CMakeFiles/YAMD_tests.dir/__/lj_direct_summation.cpp.o" \
-"CMakeFiles/YAMD_tests.dir/test_verlet.cpp.o"
+"CMakeFiles/YAMD_tests.dir/__/SourceFiles/verlet.cpp.o" \
+"CMakeFiles/YAMD_tests.dir/__/SourceFiles/lj_direct_summation.cpp.o" \
+"CMakeFiles/YAMD_tests.dir/test_verlet.cpp.o" \
+"CMakeFiles/YAMD_tests.dir/test_lj_direct_summation.cpp.o"
 
 # External object files for target YAMD_tests
 YAMD_tests_EXTERNAL_OBJECTS =
 
-tests/YAMD_tests: tests/CMakeFiles/YAMD_tests.dir/__/verlet.cpp.o
-tests/YAMD_tests: tests/CMakeFiles/YAMD_tests.dir/__/lj_direct_summation.cpp.o
+tests/YAMD_tests: tests/CMakeFiles/YAMD_tests.dir/__/SourceFiles/verlet.cpp.o
+tests/YAMD_tests: tests/CMakeFiles/YAMD_tests.dir/__/SourceFiles/lj_direct_summation.cpp.o
 tests/YAMD_tests: tests/CMakeFiles/YAMD_tests.dir/test_verlet.cpp.o
+tests/YAMD_tests: tests/CMakeFiles/YAMD_tests.dir/test_lj_direct_summation.cpp.o
 tests/YAMD_tests: tests/CMakeFiles/YAMD_tests.dir/build.make
 tests/YAMD_tests: lib/libgtestd.a
 tests/YAMD_tests: lib/libgtest_maind.a
 tests/YAMD_tests: lib/libgtestd.a
 tests/YAMD_tests: tests/CMakeFiles/YAMD_tests.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/trirop/yamd/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable YAMD_tests"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/trirop/yamd/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable YAMD_tests"
 	cd /home/trirop/yamd/cmake-build-debug/tests && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/YAMD_tests.dir/link.txt --verbose=$(VERBOSE)
 	cd /home/trirop/yamd/cmake-build-debug/tests && /usr/bin/cmake -D TEST_TARGET=YAMD_tests -D TEST_EXECUTABLE=/home/trirop/yamd/cmake-build-debug/tests/YAMD_tests -D TEST_EXECUTOR= -D TEST_WORKING_DIR=/home/trirop/yamd/cmake-build-debug/tests -D TEST_EXTRA_ARGS= -D TEST_PROPERTIES= -D TEST_PREFIX= -D TEST_SUFFIX= -D NO_PRETTY_TYPES=FALSE -D NO_PRETTY_VALUES=FALSE -D TEST_LIST=YAMD_tests_TESTS -D CTEST_FILE=/home/trirop/yamd/cmake-build-debug/tests/YAMD_tests[1]_tests.cmake -D TEST_DISCOVERY_TIMEOUT=5 -P /usr/share/cmake-3.16/Modules/GoogleTestAddTests.cmake
 

@@ -25,8 +25,8 @@
 */
 
 #include <iostream>
-#include "verlet.h"
-#include "types.h"
+#include "HeaderFiles/verlet.h"
+#include "HeaderFiles/types.h"
 
 int main() {
     /*std::cout << "Hello world2!" << std::endl;

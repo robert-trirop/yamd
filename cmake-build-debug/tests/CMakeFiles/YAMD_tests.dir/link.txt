@@ -1,1 +1,1 @@
-/usr/bin/c++  -g   CMakeFiles/YAMD_tests.dir/__/verlet.cpp.o CMakeFiles/YAMD_tests.dir/__/lj_direct_summation.cpp.o CMakeFiles/YAMD_tests.dir/test_verlet.cpp.o  -o YAMD_tests  ../lib/libgtestd.a ../lib/libgtest_maind.a ../lib/libgtestd.a -lpthread 
+/usr/bin/c++  -g   CMakeFiles/YAMD_tests.dir/__/SourceFiles/verlet.cpp.o CMakeFiles/YAMD_tests.dir/__/SourceFiles/lj_direct_summation.cpp.o CMakeFiles/YAMD_tests.dir/test_verlet.cpp.o CMakeFiles/YAMD_tests.dir/test_lj_direct_summation.cpp.o  -o YAMD_tests  ../lib/libgtestd.a ../lib/libgtest_maind.a ../lib/libgtestd.a -lpthread 

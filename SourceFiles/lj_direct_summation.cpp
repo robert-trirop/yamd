@@ -20,29 +20,26 @@
 * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
+* 
+* (Created by Robert Schütze on 25.05.2021.)
 */
 
-#include <gtest/gtest.h>
-#include "HeaderFiles/verlet.h"
+#include "HeaderFiles/lj_direct_summation.h"
 
-
-TEST(VerletTest, BasicAssertions) {
-    int n_atoms = 100;
-    Positions_t p = Positions_t::Random(3,n_atoms);
-    Positions_t p0 = p;
-    Velocities_t v = Velocities_t::Random(3,n_atoms);
-    Velocities_t v0 = v;
-    Forces_t f = Forces_t::Random(3,n_atoms);
-    double timestep = 0.1;
-    int nb_steps = 10000;
-    for (int i = 0; i < nb_steps; ++i) {
-        verlet_step1(p, v, f, timestep);
-        verlet_step2(v, f, timestep);
-    }
-    double t = timestep*nb_steps;
-    for(int dim = 0; dim<3; dim++){
-        for(int atom = 0; atom<n_atoms; atom++){
-            EXPECT_NEAR(p(dim,atom), p0(dim,atom)+v0(dim,atom)*t+0.5*f(dim,atom)*t*t, 1e-6);
+double lj_direct_summation(Atoms &atoms, double epsilon, double sigma){
+    double E = 0.;
+    double ssq = sigma*sigma;
+    for(int j = 0; j<atoms.nb_atoms(); j++) {// Looping over the upper triangle of the pair matrix
+        for (int i = j+1; i < atoms.nb_atoms(); i++) {
+                Vector_t rij_v = atoms.positions.col(j)-atoms.positions.col(i);
+                double rij_sq = rij_v(0)*rij_v(0)+rij_v(1)*rij_v(1)+rij_v(2)*rij_v(2);
+                E += 4.*epsilon*(pow(ssq/rij_sq,6.)-pow(ssq/rij_sq,3.)); //no 1/2, because E = Eij+Eji
+                Vector_t Fij = 24.*epsilon*(pow(ssq*rij_sq,3.)-2.*pow(ssq,6.))/pow(rij_sq,7.)*rij_v;
+                atoms.forces.col(i) += Fij;
+                atoms.forces.col(j) -= Fij;
         }
     }
+    return E;
 }
+
+

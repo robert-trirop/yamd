@@ -11,20 +11,20 @@ add_external_package(Eigen3 VERSION 3.4.0 CONFIG)
 
 set(YAMD_HDRS
         # Add header files here
-        ${CMAKE_CURRENT_SOURCE_DIR}/verlet.h
-        ${CMAKE_CURRENT_SOURCE_DIR}/types.h
-        ${CMAKE_CURRENT_SOURCE_DIR}/atoms.h
-        ${CMAKE_CURRENT_SOURCE_DIR}/lj_direct_summation.h
+        ../HeaderFiles/verlet.h
+        ../HeaderFiles/types.h
+        ../HeaderFiles/atoms.h
+        ../HeaderFiles/lj_direct_summation.h
         )
 
 set(YAMD_SRCS
         # Add source files here
-        ${CMAKE_CURRENT_SOURCE_DIR}/verlet.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/lj_direct_summation.cpp
+        ../SourceFiles/verlet.cpp
+        ../SourceFiles/lj_direct_summation.cpp
         )
 
 set(YAMD_executable_SRCS
-        ${CMAKE_CURRENT_SOURCE_DIR}/main.cpp
+        main.cpp
         )
 
 add_subdirectory(tests)

@@ -20,25 +20,17 @@
 * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
-* 
+*
 * (Created by Robert Schütze on 25.05.2021.)
 */
 
-#include "lj_direct_summation.h"
-#include "atoms.h"
+#include "HeaderFiles/verlet.h"
 
-double lj_direct_summation(Atoms &atoms, double epsilon, double sigma){
-    double E = 0.;
-
-    for(int k = 0; k<atoms.nb_atoms(); k++) {
-        for (int i = 0; i < atoms.nb_atoms(); i++) {
-            if(i != k){
-                Eigen::VectorXd rij_v = atoms.positions.col(i)-atoms.positions.col(k);
-                double rij = rij_v.norm();
-                E += 2.0*epsilon*(pow(sigma/rij,12.)-pow(sigma/rij,6.));
-            }
-
-        }
-    }
-    return E;
+void verlet_step1(Positions_t &positions, Velocities_t &velocities,
+                  const Forces_t &forces, double timestep){
+    velocities += 0.5*timestep*forces;
+    positions += timestep*velocities;
+}
+void verlet_step2(Velocities_t &velocities, const Forces_t &forces, double timestep){
+    velocities += 0.5*timestep*forces;
 }

@@ -36,6 +36,13 @@ public:
     Velocities_t velocities;
     Forces_t forces;
 
+    Atoms(const int &nb_atoms) :
+            positions{3,nb_atoms}, velocities{3,nb_atoms}, forces{3, nb_atoms} {
+        positions.setZero();
+        velocities.setZero();
+        forces.setZero();
+    }
+
     Atoms(const Positions_t &p) :
             positions{p}, velocities{3, p.cols()}, forces{3, p.cols()} {
         velocities.setZero();

@@ -378,7 +378,27 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/trirop/yamd/atoms.h">
+		<Unit filename="/home/trirop/yamd/HeaderFiles/atoms.h">
+			<Option target="YAMD"/>
+			<Option target="YAMD_tests"/>
+		</Unit>
+		<Unit filename="/home/trirop/yamd/HeaderFiles/lj_direct_summation.h">
+			<Option target="YAMD"/>
+			<Option target="YAMD_tests"/>
+		</Unit>
+		<Unit filename="/home/trirop/yamd/HeaderFiles/types.h">
+			<Option target="YAMD"/>
+			<Option target="YAMD_tests"/>
+		</Unit>
+		<Unit filename="/home/trirop/yamd/HeaderFiles/verlet.h">
+			<Option target="YAMD"/>
+			<Option target="YAMD_tests"/>
+		</Unit>
+		<Unit filename="/home/trirop/yamd/SourceFiles/lj_direct_summation.cpp">
+			<Option target="YAMD"/>
+			<Option target="YAMD_tests"/>
+		</Unit>
+		<Unit filename="/home/trirop/yamd/SourceFiles/verlet.cpp">
 			<Option target="YAMD"/>
 			<Option target="YAMD_tests"/>
 		</Unit>
@@ -394,30 +414,13 @@
 		<Unit filename="/home/trirop/yamd/cmake-build-debug/_deps/googletest-src/googletest/src/gtest_main.cc">
 			<Option target="gtest_main"/>
 		</Unit>
-		<Unit filename="/home/trirop/yamd/lj_direct_summation.cpp">
-			<Option target="YAMD"/>
-			<Option target="YAMD_tests"/>
-		</Unit>
-		<Unit filename="/home/trirop/yamd/lj_direct_summation.h">
-			<Option target="YAMD"/>
-			<Option target="YAMD_tests"/>
-		</Unit>
 		<Unit filename="/home/trirop/yamd/main.cpp">
 			<Option target="YAMD"/>
 		</Unit>
+		<Unit filename="/home/trirop/yamd/tests/test_lj_direct_summation.cpp">
+			<Option target="YAMD_tests"/>
+		</Unit>
 		<Unit filename="/home/trirop/yamd/tests/test_verlet.cpp">
-			<Option target="YAMD_tests"/>
-		</Unit>
-		<Unit filename="/home/trirop/yamd/types.h">
-			<Option target="YAMD"/>
-			<Option target="YAMD_tests"/>
-		</Unit>
-		<Unit filename="/home/trirop/yamd/verlet.cpp">
-			<Option target="YAMD"/>
-			<Option target="YAMD_tests"/>
-		</Unit>
-		<Unit filename="/home/trirop/yamd/verlet.h">
-			<Option target="YAMD"/>
 			<Option target="YAMD_tests"/>
 		</Unit>
 		<Unit filename="/home/trirop/yamd/CMakeLists.txt">
