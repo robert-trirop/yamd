@@ -386,6 +386,10 @@
 			<Option target="YAMD"/>
 			<Option target="YAMD_tests"/>
 		</Unit>
+		<Unit filename="/home/trirop/yamd/HeaderFiles/milestones.h">
+			<Option target="YAMD"/>
+			<Option target="YAMD_tests"/>
+		</Unit>
 		<Unit filename="/home/trirop/yamd/HeaderFiles/types.h">
 			<Option target="YAMD"/>
 			<Option target="YAMD_tests"/>
@@ -395,6 +399,10 @@
 			<Option target="YAMD_tests"/>
 		</Unit>
 		<Unit filename="/home/trirop/yamd/SourceFiles/lj_direct_summation.cpp">
+			<Option target="YAMD"/>
+			<Option target="YAMD_tests"/>
+		</Unit>
+		<Unit filename="/home/trirop/yamd/SourceFiles/milestones.cpp">
 			<Option target="YAMD"/>
 			<Option target="YAMD_tests"/>
 		</Unit>

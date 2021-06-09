@@ -24,7 +24,7 @@
 * (Created by Robert Schütze on 25.05.2021.)
 */
 
-#include "HeaderFiles/verlet.h"
+#include "../HeaderFiles/verlet.h"
 
 void verlet_step1(Positions_t &positions, Velocities_t &velocities,
                   const Forces_t &forces, double timestep){

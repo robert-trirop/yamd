@@ -15,13 +15,13 @@ set(YAMD_HDRS
         ../HeaderFiles/types.h
         ../HeaderFiles/atoms.h
         ../HeaderFiles/lj_direct_summation.h
-        )
+        ../HeaderFiles/milestones.h)
 
 set(YAMD_SRCS
         # Add source files here
         ../SourceFiles/verlet.cpp
         ../SourceFiles/lj_direct_summation.cpp
-        )
+        ../SourceFiles/milestones.cpp)
 
 set(YAMD_executable_SRCS
         main.cpp
