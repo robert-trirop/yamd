@@ -247,6 +247,10 @@ tests/CMakeFiles/YAMD_tests.dir/__/SourceFiles/lj_direct_summation.cpp.o: extern
 tests/CMakeFiles/YAMD_tests.dir/__/SourceFiles/lj_direct_summation.cpp.o: external/Eigen3/Eigen/src/plugins/MatrixCwiseUnaryOps.h
 tests/CMakeFiles/YAMD_tests.dir/__/SourceFiles/lj_direct_summation.cpp.o: external/Eigen3/Eigen/src/plugins/ReshapedMethods.h
 
+tests/CMakeFiles/YAMD_tests.dir/__/SourceFiles/milestones.cpp.o: ../SourceFiles/milestones.cpp
+
+tests/CMakeFiles/YAMD_tests.dir/__/SourceFiles/usefulFunctions.cpp.o: ../SourceFiles/usefulFunctions.cpp
+
 tests/CMakeFiles/YAMD_tests.dir/__/SourceFiles/verlet.cpp.o: ../HeaderFiles/types.h
 tests/CMakeFiles/YAMD_tests.dir/__/SourceFiles/verlet.cpp.o: ../HeaderFiles/verlet.h
 tests/CMakeFiles/YAMD_tests.dir/__/SourceFiles/verlet.cpp.o: ../SourceFiles/verlet.cpp

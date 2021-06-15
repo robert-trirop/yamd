@@ -36,8 +36,8 @@ TEST(VerletTest, BasicAssertions) {
     double timestep = 0.1;
     int nb_steps = 10000;
     for (int i = 0; i < nb_steps; ++i) {
-        verlet_step1(p, v, f, timestep);
-        verlet_step2(v, f, timestep);
+        verlet_step1_simple(p, v, f, timestep);
+        verlet_step2_simple(v, f, timestep);
     }
     double t = timestep*nb_steps;
     for(int dim = 0; dim<3; dim++){

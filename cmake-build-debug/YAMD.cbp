@@ -394,7 +394,15 @@
 			<Option target="YAMD"/>
 			<Option target="YAMD_tests"/>
 		</Unit>
+		<Unit filename="/home/trirop/yamd/HeaderFiles/usefulFunctions.h">
+			<Option target="YAMD"/>
+			<Option target="YAMD_tests"/>
+		</Unit>
 		<Unit filename="/home/trirop/yamd/HeaderFiles/verlet.h">
+			<Option target="YAMD"/>
+			<Option target="YAMD_tests"/>
+		</Unit>
+		<Unit filename="/home/trirop/yamd/HeaderFiles/xyz.h">
 			<Option target="YAMD"/>
 			<Option target="YAMD_tests"/>
 		</Unit>
@@ -406,7 +414,15 @@
 			<Option target="YAMD"/>
 			<Option target="YAMD_tests"/>
 		</Unit>
+		<Unit filename="/home/trirop/yamd/SourceFiles/usefulFunctions.cpp">
+			<Option target="YAMD"/>
+			<Option target="YAMD_tests"/>
+		</Unit>
 		<Unit filename="/home/trirop/yamd/SourceFiles/verlet.cpp">
+			<Option target="YAMD"/>
+			<Option target="YAMD_tests"/>
+		</Unit>
+		<Unit filename="/home/trirop/yamd/SourceFiles/xyz.cpp">
 			<Option target="YAMD"/>
 			<Option target="YAMD_tests"/>
 		</Unit>

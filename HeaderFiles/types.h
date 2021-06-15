@@ -24,14 +24,22 @@
 * (Created by Robert Schütze on 25.05.2021.)
 */
 
-#include <Eigen/Dense>
+
 
 #ifndef YAMD_TYPES_H
 #define YAMD_TYPES_H
+
+#include <Eigen/Dense>
+#include <iostream>
+#include <string>
+#include <vector>
+
 
 using Positions_t = Eigen::Array3Xd;
 using Velocities_t = Eigen::Array3Xd;
 using Forces_t = Eigen::Array3Xd;
 using Vector_t = Eigen::Array3d;
+using Mass_t = Eigen::ArrayXd;
+using Names_t = std::vector<std::string>;
 
 #endif //YAMD_TYPES_H

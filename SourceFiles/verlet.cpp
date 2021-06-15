@@ -26,11 +26,21 @@
 
 #include "../HeaderFiles/verlet.h"
 
-void verlet_step1(Positions_t &positions, Velocities_t &velocities,
+// Simple version of the Verlet steps not using the Atoms class
+void verlet_step1_simple(Positions_t &positions, Velocities_t &velocities,
                   const Forces_t &forces, double timestep){
     velocities += 0.5*timestep*forces;
     positions += timestep*velocities;
 }
-void verlet_step2(Velocities_t &velocities, const Forces_t &forces, double timestep){
+void verlet_step2_simple(Velocities_t &velocities, const Forces_t &forces, double timestep){
     velocities += 0.5*timestep*forces;
+}
+
+// Verlet steps using the Atoms class
+void verlet_step1(Atoms &atoms, double timestep){
+    atoms.velocities += 0.5*timestep*atoms.forces;
+    atoms.positions += timestep*atoms.velocities;
+}
+void verlet_step2(Atoms &atoms, double timestep){
+    atoms.velocities += 0.5*timestep*atoms.forces;
 }

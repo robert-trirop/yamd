@@ -35,26 +35,31 @@ public:
     Positions_t positions;
     Velocities_t velocities;
     Forces_t forces;
-
+    Mass_t masses;
+    Names_t names;
+    // number of atoms as input
     Atoms(const int &nb_atoms) :
-            positions{3,nb_atoms}, velocities{3,nb_atoms}, forces{3, nb_atoms} {
+            positions{3,nb_atoms}, velocities{3,nb_atoms}, forces{3, nb_atoms}, masses{nb_atoms}, names(nb_atoms) {
         positions.setZero();
         velocities.setZero();
         forces.setZero();
+        masses.setOnes();
     }
-
+    // positions as input
     Atoms(const Positions_t &p) :
-            positions{p}, velocities{3, p.cols()}, forces{3, p.cols()} {
+            positions{p}, velocities{3, p.cols()}, forces{3, p.cols()}, masses{p.cols()}, names(p.cols())  {
         velocities.setZero();
         forces.setZero();
+        masses.setOnes();
     }
-
+    // positions and velocities as input
     Atoms(const Positions_t &p, const Velocities_t &v) :
-            positions{p}, velocities{v}, forces{3, p.cols()} {
+            positions{p}, velocities{v}, forces{3, p.cols()}, masses{p.cols()}, names(p.cols()) {
         assert(p.cols() == v.cols());
         forces.setZero();
+        masses.setOnes();
     }
-
+    // outputs number of atoms
     size_t nb_atoms() const {
         return positions.cols();
     }

@@ -25,3 +25,39 @@
 */
 
 
+
+#include "../HeaderFiles/milestones.h"
+
+// MILESTONE 4
+int MS4() {
+    double mass = 1.0;
+    double epsilon = 1.0;
+    double sigma = 1.0;
+
+    double factor = sqrt(mass*sigma*sigma/epsilon);
+    double t_tot = 100*factor; // total simulation time
+    double dt = 0.001*factor; // timestep
+    double safeInterval = 1*factor;
+    int steps = t_tot/dt; // number of simulation steps
+    int safeIndex = safeInterval/dt; // safe state every safeIndex
+    double E = 0; // current energy
+    std::vector<double> E_list(steps); // list of all energies
+    // Read given xyz file and create corresponding Atoms object
+    auto [names, positions, velocities]{read_xyz_with_velocities("../Data/lj54.xyz")};
+    Atoms atoms(positions, velocities);
+    for(int i=0; i<steps; i++){
+        verlet_step1(atoms, dt);
+        E = lj_direct_summation(atoms, epsilon, sigma);
+        verlet_step2(atoms, dt);
+        std::cout << E << std::endl;
+    }
+
+
+
+
+
+
+
+
+    return 0;
+}

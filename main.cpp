@@ -27,6 +27,7 @@
 #include <iostream>
 #include "HeaderFiles/verlet.h"
 #include "HeaderFiles/types.h"
+#include "HeaderFiles/milestones.h"
 
 int main() {
     /*std::cout << "Hello world2!" << std::endl;
@@ -37,6 +38,6 @@ int main() {
     Positions_t positions3 = positions + positions2;
     positions3 += positions;
     std::cout << positions3(2,1) << std::endl;*/
-
+    MS4();
     return 0;
 }
