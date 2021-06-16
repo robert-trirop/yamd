@@ -28,6 +28,7 @@
 
 double lj_direct_summation(Atoms &atoms, double epsilon, double sigma){
     double E = 0.;
+    atoms.forces.setZero();
     double ssq = sigma*sigma; // only sigma^2 is used (pre-computation)
     for(int j = 0; j<atoms.nb_atoms(); j++) {// Looping over the upper triangle of the pair matrix
         for (int i = j+1; i < atoms.nb_atoms(); i++) {

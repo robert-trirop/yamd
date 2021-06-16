@@ -28,4 +28,7 @@
 #ifndef YAMD_USEFULFUNCTIONS_H
 #define YAMD_USEFULFUNCTIONS_H
 
+#include "atoms.h"
+double E_kin(Atoms &atoms);
+
 #endif //YAMD_USEFULFUNCTIONS_H

@@ -30,7 +30,9 @@
 #define YAMD_TYPES_H
 
 #include <Eigen/Dense>
+#include <iomanip>
 #include <iostream>
+#include <fstream>
 #include <string>
 #include <vector>
 

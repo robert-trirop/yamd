@@ -28,11 +28,12 @@
 #ifndef YAMD_MILESTONES_H
 #define YAMD_MILESTONES_H
 
-#include "../HeaderFiles/types.h"
-#include "../HeaderFiles/xyz.h"
-#include "../HeaderFiles/atoms.h"
-#include "../HeaderFiles/verlet.h"
-#include "../HeaderFiles/lj_direct_summation.h"
+#include "types.h"
+#include "xyz.h"
+#include "atoms.h"
+#include "verlet.h"
+#include "lj_direct_summation.h"
+#include "usefulFunctions.h"
 
 int MS4();
 

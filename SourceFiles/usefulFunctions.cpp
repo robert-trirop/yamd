@@ -23,5 +23,8 @@
 * 
 * (Created by Robert Schütze on 09.06.2021.)
 */
+#include "../HeaderFiles/usefulFunctions.h"
 
-//Compute total energy
+double E_kin(Atoms &atoms){
+    return (atoms.velocities.square().rowwise()*atoms.masses.transpose()).sum()/2;
+}
