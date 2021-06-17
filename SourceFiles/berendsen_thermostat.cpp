@@ -21,21 +21,11 @@
 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * 
-* (Created by Robert Schütze on 09.06.2021.)
+* (Created by Robert Schütze on 17.06.2021.)
 */
 
+#include "../HeaderFiles/berendsen_thermostat.h"
 
-#ifndef YAMD_MILESTONES_H
-#define YAMD_MILESTONES_H
-
-#include "types.h"
-#include "xyz.h"
-#include "atoms.h"
-#include "verlet.h"
-#include "lj_direct_summation.h"
-#include "useful_functions.h"
-
-int MS4();
-int MS5();
-
-#endif //YAMD_MILESTONES_H
+void berendsen_thermostat(Atoms &atoms, double T0, double dt, double tau){
+    atoms.velocities *= sqrt(1+(T0/T(atoms)-1)*dt/tau);
+}

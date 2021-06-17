@@ -21,21 +21,18 @@
 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * 
-* (Created by Robert Schütze on 09.06.2021.)
+* (Created by Robert Schütze on 17.06.2021.)
 */
 
 
-#ifndef YAMD_MILESTONES_H
-#define YAMD_MILESTONES_H
+#ifndef YAMD_CONSTANTS_H
+#define YAMD_CONSTANTS_H
 
-#include "types.h"
-#include "xyz.h"
-#include "atoms.h"
-#include "verlet.h"
-#include "lj_direct_summation.h"
-#include "useful_functions.h"
+// Boltzmann constant kB
+#define kB 1.380649e-23
+// Avogadro's constant NA
+#define NA 6.02214179e23
+// Atomic unit u
+//#define u 1.660539e-27
 
-int MS4();
-int MS5();
-
-#endif //YAMD_MILESTONES_H
+#endif //YAMD_CONSTANTS_H

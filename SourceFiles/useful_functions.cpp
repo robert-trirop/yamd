@@ -23,12 +23,14 @@
 * 
 * (Created by Robert Schütze on 09.06.2021.)
 */
+#include "../HeaderFiles/useful_functions.h"
 
+// calculate current kinetic energy of atoms
+double E_kin(Atoms &atoms){
+    return (atoms.velocities.square().rowwise()*atoms.masses.transpose()).sum()/2;
+}
 
-#ifndef YAMD_USEFULFUNCTIONS_H
-#define YAMD_USEFULFUNCTIONS_H
-
-#include "atoms.h"
-double E_kin(Atoms &atoms);
-
-#endif //YAMD_USEFULFUNCTIONS_H
+// calculate current temperature based on the kinetic energy
+double T(Atoms &atoms){
+    return 2./3.* E_kin(atoms)/kB;
+}

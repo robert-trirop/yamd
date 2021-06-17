@@ -1,7 +1,8 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/YAMD_tests.dir/__/SourceFiles/berendsen_thermostat.cpp.o"
   "CMakeFiles/YAMD_tests.dir/__/SourceFiles/lj_direct_summation.cpp.o"
   "CMakeFiles/YAMD_tests.dir/__/SourceFiles/milestones.cpp.o"
-  "CMakeFiles/YAMD_tests.dir/__/SourceFiles/usefulFunctions.cpp.o"
+  "CMakeFiles/YAMD_tests.dir/__/SourceFiles/useful_functions.cpp.o"
   "CMakeFiles/YAMD_tests.dir/__/SourceFiles/verlet.cpp.o"
   "CMakeFiles/YAMD_tests.dir/__/SourceFiles/xyz.cpp.o"
   "CMakeFiles/YAMD_tests.dir/test_lj_direct_summation.cpp.o"

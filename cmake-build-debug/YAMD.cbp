@@ -382,6 +382,14 @@
 			<Option target="YAMD"/>
 			<Option target="YAMD_tests"/>
 		</Unit>
+		<Unit filename="/home/trirop/yamd/HeaderFiles/berendsen_thermostat.h">
+			<Option target="YAMD"/>
+			<Option target="YAMD_tests"/>
+		</Unit>
+		<Unit filename="/home/trirop/yamd/HeaderFiles/constants.h">
+			<Option target="YAMD"/>
+			<Option target="YAMD_tests"/>
+		</Unit>
 		<Unit filename="/home/trirop/yamd/HeaderFiles/lj_direct_summation.h">
 			<Option target="YAMD"/>
 			<Option target="YAMD_tests"/>
@@ -394,7 +402,7 @@
 			<Option target="YAMD"/>
 			<Option target="YAMD_tests"/>
 		</Unit>
-		<Unit filename="/home/trirop/yamd/HeaderFiles/usefulFunctions.h">
+		<Unit filename="/home/trirop/yamd/HeaderFiles/useful_functions.h">
 			<Option target="YAMD"/>
 			<Option target="YAMD_tests"/>
 		</Unit>
@@ -406,6 +414,10 @@
 			<Option target="YAMD"/>
 			<Option target="YAMD_tests"/>
 		</Unit>
+		<Unit filename="/home/trirop/yamd/SourceFiles/berendsen_thermostat.cpp">
+			<Option target="YAMD"/>
+			<Option target="YAMD_tests"/>
+		</Unit>
 		<Unit filename="/home/trirop/yamd/SourceFiles/lj_direct_summation.cpp">
 			<Option target="YAMD"/>
 			<Option target="YAMD_tests"/>
@@ -414,7 +426,7 @@
 			<Option target="YAMD"/>
 			<Option target="YAMD_tests"/>
 		</Unit>
-		<Unit filename="/home/trirop/yamd/SourceFiles/usefulFunctions.cpp">
+		<Unit filename="/home/trirop/yamd/SourceFiles/useful_functions.cpp">
 			<Option target="YAMD"/>
 			<Option target="YAMD_tests"/>
 		</Unit>

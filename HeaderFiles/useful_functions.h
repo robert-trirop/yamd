@@ -23,8 +23,14 @@
 * 
 * (Created by Robert Schütze on 09.06.2021.)
 */
-#include "../HeaderFiles/usefulFunctions.h"
 
-double E_kin(Atoms &atoms){
-    return (atoms.velocities.square().rowwise()*atoms.masses.transpose()).sum()/2;
-}
+
+#ifndef YAMD_USEFUL_FUNCTIONS_H
+#define YAMD_USEFUL_FUNCTIONS_H
+
+#include "atoms.h"
+#include "constants.h"
+double E_kin(Atoms &atoms);
+double T(Atoms &atoms);
+
+#endif //YAMD_USEFUL_FUNCTIONS_H

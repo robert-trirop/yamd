@@ -21,21 +21,18 @@
 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * 
-* (Created by Robert Schütze on 09.06.2021.)
+* (Created by Robert Schütze on 17.06.2021.)
 */
 
 
-#ifndef YAMD_MILESTONES_H
-#define YAMD_MILESTONES_H
+#ifndef YAMD_BERENDSEN_THERMOSTAT_H
+#define YAMD_BERENDSEN_THERMOSTAT_H
 
-#include "types.h"
-#include "xyz.h"
 #include "atoms.h"
-#include "verlet.h"
-#include "lj_direct_summation.h"
+#include "constants.h"
 #include "useful_functions.h"
 
-int MS4();
-int MS5();
+// inputs: target temperature T0, timestep dt and relaxation time tau
+void berendsen_thermostat(Atoms &atoms, double T0, double dt, double tau);
 
-#endif //YAMD_MILESTONES_H
+#endif //YAMD_BERENDSEN_THERMOSTAT_H
