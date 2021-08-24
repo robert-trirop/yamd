@@ -1,5 +1,0 @@
-if(EXISTS "/home/trirop/yamd/cmake-build-debug/tests/YAMD_tests[1]_tests.cmake")
-  include("/home/trirop/yamd/cmake-build-debug/tests/YAMD_tests[1]_tests.cmake")
-else()
-  add_test(YAMD_tests_NOT_BUILT YAMD_tests_NOT_BUILT)
-endif()
