@@ -33,6 +33,6 @@
 // Avogadro's constant NA
 #define NA 6.02214179e23
 // Atomic unit u
-//#define u 1.660539e-27
+#define u 1.660539e-27
 
 #endif //YAMD_CONSTANTS_H

@@ -33,7 +33,9 @@
 #include "atoms.h"
 #include "verlet.h"
 #include "lj_direct_summation.h"
+#include "berendsen_thermostat.h"
 #include "useful_functions.h"
+
 
 int MS4();
 int MS5();

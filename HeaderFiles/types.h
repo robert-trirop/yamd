@@ -42,6 +42,9 @@ using Velocities_t = Eigen::Array3Xd;
 using Forces_t = Eigen::Array3Xd;
 using Vector_t = Eigen::Array3d;
 using Mass_t = Eigen::ArrayXd;
+using List_t = Eigen::ArrayXd;
+
+
 using Names_t = std::vector<std::string>;
 
 #endif //YAMD_TYPES_H

@@ -1,1 +1,0 @@
-cd $HOME/yamd/Report/Python&&python3 -m notebook --port=8889 --no-browser

@@ -32,5 +32,6 @@
 #include "constants.h"
 double E_kin(Atoms &atoms);
 double T(Atoms &atoms);
+Positions_t lattice(unsigned int nx, unsigned int ny, unsigned int nz, double sigma);
 
 #endif //YAMD_USEFUL_FUNCTIONS_H

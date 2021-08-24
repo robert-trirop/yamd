@@ -51,6 +51,7 @@ public:
         velocities.setZero();
         forces.setZero();
         masses.setOnes();
+        for(int i=0; i<p.cols(); i++){names[i] = "H";}
     }
     // positions and velocities as input
     Atoms(const Positions_t &p, const Velocities_t &v) :
