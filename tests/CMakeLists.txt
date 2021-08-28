@@ -9,7 +9,9 @@ set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 
 set(YAMD_tests_SRCS
         test_verlet.cpp
-        test_lj_direct_summation.cpp test_berendsen_thermostat.cpp)
+        test_lj_direct_summation.cpp
+        test_berendsen_thermostat.cpp
+        test_neighbors.cpp)
 
 # Tests
 include_directories(YAMD_tests ${CMAKE_SOURCE_DIR})

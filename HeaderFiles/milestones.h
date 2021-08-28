@@ -38,6 +38,6 @@
 
 
 int MS4();
-int MS5();
+int MS5(bool write_output, int sx, int sy, int sz);
 
 #endif //YAMD_MILESTONES_H

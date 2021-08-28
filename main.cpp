@@ -30,14 +30,11 @@
 #include "HeaderFiles/milestones.h"
 
 int main() {
-    /*std::cout << "Hello world2!" << std::endl;
-    Positions_t positions(3, 100);
-    positions(2,1) = 1.0;
-    Positions_t positions2(3, 100);
-    positions2(2,1) += 1.0;
-    Positions_t positions3 = positions + positions2;
-    positions3 += positions;
-    std::cout << positions3(2,1) << std::endl;*/
-    MS5();
+    // MS4(); // uncomment for milestone 4
+
+    // MS5(true, 5, 5, 5); // uncomment for milestone 5 with file output
+
+    // for(int i = 1; i <= 25; i++){MS5(false, 4, 5, i);} // uncomment for milestone 5 time scaling curve
+
     return 0;
 }

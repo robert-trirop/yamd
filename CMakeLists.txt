@@ -19,7 +19,8 @@ set(YAMD_HDRS
         ../HeaderFiles/useful_functions.h
         ../HeaderFiles/xyz.h
         ../HeaderFiles/berendsen_thermostat.h
-        ../HeaderFiles/constants.h)
+        ../HeaderFiles/constants.h
+        ../HeaderFiles/neighbors.h)
 
 set(YAMD_SRCS
         # Add source files here
@@ -28,11 +29,11 @@ set(YAMD_SRCS
         ../SourceFiles/milestones.cpp
         ../SourceFiles/useful_functions.cpp
         ../SourceFiles/xyz.cpp
-        ../SourceFiles/berendsen_thermostat.cpp)
+        ../SourceFiles/berendsen_thermostat.cpp
+        ../SourceFiles/neighbors.cpp)
 
 set(YAMD_executable_SRCS
-        main.cpp
-        )
+        main.cpp)
 
 add_subdirectory(tests)
 

@@ -60,6 +60,13 @@ public:
         forces.setZero();
         masses.setOnes();
     }
+    // names and positions as input
+    Atoms(const Names_t &n, const Positions_t &p) :
+            names{n} ,positions{p}, velocities{3, p.cols()}, forces{3, p.cols()}, masses{p.cols()}{
+        velocities.setZero();
+        forces.setZero();
+        masses.setOnes();
+    }
     // outputs number of atoms
     size_t nb_atoms() const {
         return positions.cols();
