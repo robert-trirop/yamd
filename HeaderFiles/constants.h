@@ -28,8 +28,9 @@
 #ifndef YAMD_CONSTANTS_H
 #define YAMD_CONSTANTS_H
 
-// Boltzmann constant kB
+// Boltzmann constant kB in joules/K and kBeV in eV/K
 #define kB 1.380649e-23
+#define kBeV 8.617332385e-5
 // Avogadro's constant NA
 #define NA 6.02214179e23
 // Atomic unit u

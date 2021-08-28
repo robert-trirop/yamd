@@ -77,7 +77,7 @@ int MS5() {
     double sigma = 1.0;
 
     double factor = sqrt(mass*sigma*sigma/epsilon);
-    double t_tot = 1000*factor; // total simulation time
+    double t_tot = 100*factor; // total simulation time
     double dt = 0.02*factor; // timestep (0.03*factor for non constant energy)
     double tau = 10.*dt;
     double safe_interval = 0.20*factor;
@@ -85,7 +85,7 @@ int MS5() {
     int safe_index = safe_interval/dt; // safe state every safe_index
 
 
-    Atoms atoms(lattice(50, 3, 3, sigma*1.1));
+    Atoms atoms(lattice(5, 5, 5, sigma*1.1));
     write_xyz("../Data/Out_MS5/traj0000.xyz", atoms);
 
     double E = lj_direct_summation(atoms, epsilon, sigma) + E_kin(atoms); // initial energy
@@ -97,24 +97,19 @@ int MS5() {
         E = lj_direct_summation(atoms, epsilon, sigma);
         verlet_step2(atoms, dt);
         E += E_kin(atoms);
-        if(i>steps/10) {
-            berendsen_thermostat(atoms, 1e25, dt, tau*20);
-        }else{
-            berendsen_thermostat(atoms, 1e21, dt, tau);
-        }
+        berendsen_thermostat(atoms, 200, dt, tau);
 
-        if(i%safe_index == 0){
+        if(i%safe_index == 0){ // safe state every safe_index
             char filename[50];
             sprintf(filename, "../Data/Out_MS5/traj%04d.xyz",i/safe_index);
-            write_xyz(filename,atoms);
-            std::cout << i/safe_index << std::endl;
-            std::cout << T(atoms) << std::endl;
+            write_xyz(filename, atoms);
+            std::cout << T(atoms) << std::endl; // print current temperature
         }
     }
     std::ofstream file("../Data/Out_MS5/energies.txt");
-    for(int i=0; i<steps; ++i) {
+    for(int i=0; i<steps; ++i) { // Save energies to txt file
         file << std::fixed << std::setprecision(32) << E_list[i] << std::endl;
     }
     file.close();
-    return 0; // test
+    return 0;
 }

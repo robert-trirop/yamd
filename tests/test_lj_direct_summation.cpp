@@ -23,7 +23,6 @@
 */
 
 #include <gtest/gtest.h>
-
 #include "HeaderFiles/lj_direct_summation.h"
 
 TEST(LJDirectSummationTest, Forces) {

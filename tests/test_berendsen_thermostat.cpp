@@ -20,28 +20,37 @@
 * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
+* 
+* (Created by Robert Schütze on 27.08.2021.)
 */
 
 #include <gtest/gtest.h>
 #include "HeaderFiles/verlet.h"
+#include "HeaderFiles/lj_direct_summation.h"
+#include "HeaderFiles/berendsen_thermostat.h"
 
-TEST(VerletTest, BasicAssertions) {
-    int n_atoms = 100;
-    Positions_t p = Positions_t::Random(3,n_atoms);
-    Positions_t p0 = p;
-    Velocities_t v = Velocities_t::Random(3,n_atoms);
-    Velocities_t v0 = v;
-    Forces_t f = Forces_t::Random(3,n_atoms);
-    double timestep = 0.1;
-    int nb_steps = 10000;
-    for (int i = 0; i < nb_steps; ++i) {
-        verlet_step1_simple(p, v, f, timestep);
-        verlet_step2_simple(v, f, timestep);
-    }
-    double t = timestep*nb_steps;
-    for(int dim = 0; dim<3; dim++){
-        for(int atom = 0; atom<n_atoms; atom++){
-            EXPECT_NEAR(p(dim,atom), p0(dim,atom)+v0(dim,atom)*t+0.5*f(dim,atom)*t*t, 1e-6);
+TEST(BerendsenThermostatConvergenceTest, FinalConvergence) {
+    double mass = 1.0;
+    double epsilon = 1.0;
+    double sigma = 1.0;
+
+    double factor = sqrt(mass*sigma*sigma/epsilon);
+    double t_tot = 100*factor; // total simulation time
+    double dt = 0.02*factor; // timestep
+    double tau = 10.*dt; // relaxation time
+    int steps = t_tot/dt; // number of simulation steps
+    double T_target = 200;
+
+    Atoms atoms(lattice(5, 5, 5, sigma*1.1));
+
+    for(int i=1; i<=steps; i++){
+        verlet_step1(atoms, dt);
+        lj_direct_summation(atoms, epsilon, sigma);
+        verlet_step2(atoms, dt);
+        berendsen_thermostat(atoms, T_target, dt, tau);
+        if(i>steps/2){ // only check after convergence
+            std::cout << T(atoms) << std::endl; // print current temperature
+            EXPECT_NEAR(T(atoms), T_target, T_target*0.2); // check whether T=T_target+-20%
         }
     }
 }

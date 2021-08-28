@@ -32,12 +32,12 @@ double E_kin(Atoms &atoms){
 
 // calculate current temperature based on the kinetic energy of the atoms
 double T(Atoms &atoms){
-    return 2./3.* E_kin(atoms)/kB;
+    return 2./3.* E_kin(atoms)/(kBeV*atoms.nb_atoms());
 }
 
 // inputs are: number of atoms in three dimensions (ny, ny, nz) and the lattice constant sigma
 Positions_t lattice(unsigned int nx, unsigned int ny, unsigned int nz, double sigma){
-    Positions_t positions(3, nx*ny*nz);
+    Positions_t positions(3, nx*ny*nz); // the next 3 lines include all index permutations in 3 dimensions
     positions.row(0) = List_t::LinSpaced(nx,0,nx-1).replicate(ny*nz,1).reshaped(1,nx*ny*nz);
     positions.row(1) = List_t::LinSpaced(ny,0,ny-1).replicate(nz,nx).transpose().reshaped(1,nx*ny*nz);
     positions.row(2) = List_t::LinSpaced(nz,0,nz-1).replicate(1,nx*ny).transpose().reshaped(1,nx*ny*nz);
