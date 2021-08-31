@@ -1,5 +1,5 @@
 /*
-* Copyright 2021 Robert Schütze
+* Copyright 2021 Lars Pastewka
 *
 * ### MIT license
 *
@@ -20,27 +20,21 @@
 * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
-*
-* (Created by Robert Schütze on 25.05.2021.)
 */
 
-#include "../HeaderFiles/verlet.h"
+#ifndef YAMD_GUPTA_H
+#define YAMD_GUPTA_H
 
-// Simple version of the Verlet steps not using the Atoms class
-void verlet_step1_simple(Positions_t &positions, Velocities_t &velocities,
-                  const Forces_t &forces, double timestep){
-    velocities += 0.5*timestep*forces;
-    positions += timestep*velocities;
-}
-void verlet_step2_simple(Velocities_t &velocities, const Forces_t &forces, double timestep){
-    velocities += 0.5*timestep*forces;
-}
+#include "atoms.h"
+#include "neighbors.h"
 
-// Verlet steps using the Atoms class
-void verlet_step1(Atoms &atoms, double timestep){
-    atoms.velocities += 0.5*timestep*atoms.forces/atoms.masses(0);
-    atoms.positions += timestep*atoms.velocities;
-}
-void verlet_step2(Atoms &atoms, double timestep){
-    atoms.velocities += 0.5*timestep*atoms.forces/atoms.masses(0);
-}
+/*
+ * This is the embedded atom method potential described in
+ *     Gupta, "Lattice relaxation at a metal surface", Phys. Rev. B 23, 6265 (1981)
+ *     Cleri, Rosato, "Tight-binding potentials for transition metals and alloys", Phys. Rev. B 48, 22 (1993)
+ * The default values for the parameters are the Au parameters from Cleri & Rosato's paper.
+ */
+double gupta(Atoms &atoms, const NeighborList &neighbor_list, double cutoff = 10.0, double A = 0.2061,
+             double xi = 1.790, double p = 10.229, double q = 4.036, double re = 4.079 / sqrt(2));
+
+#endif //YAMD_GUPTA_H

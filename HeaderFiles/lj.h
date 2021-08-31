@@ -20,27 +20,17 @@
 * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
-*
-* (Created by Robert Schütze on 25.05.2021.)
+* 
+* (Created by Robert Schütze on 28.08.2021.)
 */
 
-#include "../HeaderFiles/verlet.h"
 
-// Simple version of the Verlet steps not using the Atoms class
-void verlet_step1_simple(Positions_t &positions, Velocities_t &velocities,
-                  const Forces_t &forces, double timestep){
-    velocities += 0.5*timestep*forces;
-    positions += timestep*velocities;
-}
-void verlet_step2_simple(Velocities_t &velocities, const Forces_t &forces, double timestep){
-    velocities += 0.5*timestep*forces;
-}
+#ifndef YAMD_LJ_H
+#define YAMD_LJ_H
 
-// Verlet steps using the Atoms class
-void verlet_step1(Atoms &atoms, double timestep){
-    atoms.velocities += 0.5*timestep*atoms.forces/atoms.masses(0);
-    atoms.positions += timestep*atoms.velocities;
-}
-void verlet_step2(Atoms &atoms, double timestep){
-    atoms.velocities += 0.5*timestep*atoms.forces/atoms.masses(0);
-}
+#include "atoms.h"
+#include "neighbors.h"
+
+double lj(Atoms &atoms, NeighborList &neighbor_list, double epsilon = 1.0, double sigma = 1.0, double cutoff = 5.0);
+
+#endif //YAMD_LJ_H

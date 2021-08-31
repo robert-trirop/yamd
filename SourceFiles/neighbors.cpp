@@ -25,7 +25,7 @@
 #include <iostream>
 #include <numeric>
 
-#include "HeaderFiles/neighbors.h"
+#include "../HeaderFiles/neighbors.h"
 
 NeighborList::NeighborList(double interaction_range) :
         interaction_range_{interaction_range}, seed_{1}, neighbors_{1} {}

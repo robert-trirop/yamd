@@ -44,6 +44,7 @@ public:
         velocities.setZero();
         forces.setZero();
         masses.setOnes();
+        for(int i=0; i<nb_atoms; i++){names[i] = "H";}
     }
     // positions as input
     Atoms(const Positions_t &p) :
@@ -59,6 +60,7 @@ public:
         assert(p.cols() == v.cols());
         forces.setZero();
         masses.setOnes();
+        for(int i=0; i<p.cols(); i++){names[i] = "H";}
     }
     // names and positions as input
     Atoms(const Names_t &n, const Positions_t &p) :
@@ -66,6 +68,15 @@ public:
         velocities.setZero();
         forces.setZero();
         masses.setOnes();
+    }
+    // positions and masses as input only used for gold
+    Atoms(const Positions_t &p, const double &m) :
+            positions{p}, velocities{3, p.cols()}, forces{3, p.cols()}, masses{p.cols()}, names(p.cols()) {
+        velocities.setZero();
+        forces.setZero();
+        masses.setOnes();
+        masses *= m;
+        for(int i=0; i<p.cols(); i++){names[i] = "Au";}
     }
     // outputs number of atoms
     size_t nb_atoms() const {

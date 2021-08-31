@@ -35,9 +35,15 @@
 #include "lj_direct_summation.h"
 #include "berendsen_thermostat.h"
 #include "useful_functions.h"
+#include <ctime>
+#include "lj.h"
+#include "neighbors.h"
+#include "gupta.h"
 
 
 int MS4();
 int MS5(bool write_output, int sx, int sy, int sz);
+int MS6(bool write_output, int sx, int sy, int sz);
+int MS7(bool write_output, int sx, int sy, int sz);
 
 #endif //YAMD_MILESTONES_H
