@@ -22,7 +22,9 @@ set(YAMD_HDRS
         ../HeaderFiles/constants.h
         ../HeaderFiles/neighbors.h
         ../HeaderFiles/lj.h
-        ../HeaderFiles/gupta.h)
+        ../HeaderFiles/gupta.h
+        ../HeaderFiles/vector.h
+        ../HeaderFiles/ih.h)
 
 set(YAMD_SRCS
         # Add source files here
@@ -34,7 +36,8 @@ set(YAMD_SRCS
         ../SourceFiles/berendsen_thermostat.cpp
         ../SourceFiles/neighbors.cpp
         ../SourceFiles/lj.cpp
-        ../SourceFiles/gupta.cpp)
+        ../SourceFiles/gupta.cpp
+        ../SourceFiles/ih.cpp)
 
 set(YAMD_executable_SRCS
         main.cpp)

@@ -179,22 +179,18 @@ int MS6(bool write_output, int sx, int sy, int sz) {
 // MILESTONE 7
 int MS7(bool write_output, int sx, int sy, int sz) {
     double mass = 196.96657; // gold atom mass in g/mol or atomic units u (about the same) from http://www.periodensystem.info/elemente/gold/
-    double cutoff = 10.;
+    double d = 2.88499; // lattice constant from reference clusters
+    double cutoff = 10.; // cutoff radius
 
-    // all time units are multiplied with 10.18 fs -> dt = 1 -> dt = 10.18 fs
-    double dt = 1.; // timestep
-    double t_eq = 1000; // equilibration time
-    int steps_eq = t_eq/dt; // number of equilibration steps
-    double t_relax = 100; // relaxation time for each measurement
-    int steps_relax = t_relax/dt; // number of relaxation steps
+    // all time variables are multiplied with the unit 10.18 fs -> dt = 1 -> dt = 10.18 fs
+    double dt = 1.0; // timestep
+    double t_eq = 5000; // equilibration time
+    int steps_eq = t_eq / dt; // number of equilibration steps
+    double t_relax = 500; // relaxation time for each measurement
+    int steps_relax = t_relax / dt; // number of relaxation steps
     double dE = 0.002; // energy step in eV per atom
-    double tau = 50*dt; // relaxation time of the thermostat
+    double tau = 20 * dt; // relaxation time of the thermostat
     int steps = 150; // total number of energy & temperature pair measurements
-
-    // load cluster and create atoms object
-    auto [names, positions]{read_xyz("../Data/cluster_10178.xyz")};
-    Atoms atoms(positions, mass);
-    NeighborList neighbor_list(cutoff);
 
     std::vector<double> E_list(steps);
     std::vector<double> T_list(steps);
@@ -202,52 +198,73 @@ int MS7(bool write_output, int sx, int sy, int sz) {
     double E_pot_val;
     double E_kin_val;
     double E_current;
+    double E_initial;
+    double T_initial;
     double E_target;
     double T_col = 0;
+    char filename[50];
 
-    // equilibrate cluster
-    for (int i=1; i<=steps_eq; i++) {
-        verlet_step1(atoms, dt);
-        neighbor_list.update(atoms);
-        E_pot_val = gupta(atoms, neighbor_list, cutoff);
-        verlet_step2(atoms, dt);
-        berendsen_thermostat(atoms, 500, dt, tau);
-        if(i>3*steps_eq/4){T_col += T(atoms);} // collect temperatures after convergence to check average
-        std::cout << i << std::endl;
-    }
+    Atoms atoms(0); // initialize atoms object
+    int clusters[] = {5, 6, 8, 11, 14};
+    for(int c = 0; c<5; c++) {
+        // generate cluster atoms object
+        atoms = generate_cluster(clusters[c], d, mass);
+        std::cout << atoms.nb_atoms() << std::endl;
+        NeighborList neighbor_list(cutoff); // initialize neighbor list
 
-    double E_initial = E_pot_val+E_kin(atoms);
-    E_list[0] = E_initial/atoms.nb_atoms();
-    double T_initial = T_col/(steps_eq/4.);
-    T_list[0] = T_initial;
-
-    for (int n=1; n<steps; n++) {
-        // increase energy by dE
-        E_kin_val = E_kin(atoms);
-        E_current = E_pot_val + E_kin_val;
-        E_target = E_initial + n * dE * atoms.nb_atoms();
-        atoms.velocities *= sqrt(1. + (E_target - E_current) / E_kin_val);
-
-        T_col = 0;
-        for (int i = 1; i <= steps_relax; i++) {
+        // equilibrate cluster to 500 K
+        for (int i = 1; i <= steps_eq; i++) {
             verlet_step1(atoms, dt);
             neighbor_list.update(atoms);
             E_pot_val = gupta(atoms, neighbor_list, cutoff);
             verlet_step2(atoms, dt);
-            T_col += T(atoms);
+            berendsen_thermostat(atoms, 500, dt, tau);
+            if (i > 3 * steps_eq / 4) { T_col += T(atoms); } // collect temperatures after convergence to check average
+            std::cout << i << std::endl;
+            /*if(i%10==0){ // uncomment for trajectory output
+                sprintf(filename, "../Data/Out_MS7/traj%04d.xyz", i/10);
+                write_xyz(filename, atoms);
+            }*/
         }
-        E_list[n] = (E_pot_val + E_kin(atoms)) / atoms.nb_atoms();
-        T_list[n] = T_col / steps_relax;
-        std::cout << n << std::endl;
-    }
-    std::ofstream e_file("../Data/Out_MS7/energies.txt");
-    std::ofstream t_file("../Data/Out_MS7/temperatures.txt");
-    for (int i = 0; i < steps; ++i) {
-        e_file << std::fixed << std::setprecision(32) << E_list[i] << std::endl;
-        t_file << std::fixed << std::setprecision(32) << T_list[i] << std::endl;
-    }
-    e_file.close();
-    t_file.close();
 
+        E_initial = E_pot_val + E_kin(atoms);
+        E_list[0] = E_initial / atoms.nb_atoms();
+        T_initial = T_col / (steps_eq / 4.);
+        T_list[0] = T_initial;
+
+        // Energy sweep
+        for (int n = 1; n < steps; n++) {
+            // increase energy by dE
+            E_kin_val = E_kin(atoms);
+            E_current = E_pot_val + E_kin_val;
+            E_target = E_initial + n * dE * atoms.nb_atoms();
+            atoms.velocities *= sqrt(1. + (E_target - E_current) / E_kin_val);
+
+            T_col = 0;
+            for (int i = 1; i <= steps_relax; i++) {
+                verlet_step1(atoms, dt);
+                neighbor_list.update(atoms);
+                E_pot_val = gupta(atoms, neighbor_list, cutoff);
+                verlet_step2(atoms, dt);
+                if (i > steps_relax / 5) { T_col += T(atoms); }
+            }
+            E_list[n] = (E_pot_val + E_kin(atoms)) / atoms.nb_atoms();
+            T_list[n] = 5. / 4. * T_col / steps_relax;
+            std::cout << n << std::endl;
+        }
+
+        // Save temperatures and energies
+        sprintf(filename, "../Data/Out_MS7/energies_%04d.txt", c);
+        std::ofstream e_file(filename);
+        sprintf(filename, "../Data/Out_MS7/temperatures_%04d.txt", c);
+        std::ofstream t_file(filename);
+        e_file << atoms.nb_atoms() << std::endl; // save number of atoms to the energy file
+        for (int i = 0; i < steps; ++i) {
+            e_file << std::fixed << std::setprecision(32) << E_list[i] << std::endl;
+            t_file << std::fixed << std::setprecision(32) << T_list[i] << std::endl;
+        }
+        e_file.close();
+        t_file.close();
+    }
     return 0;
 }

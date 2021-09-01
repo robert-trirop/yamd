@@ -21,30 +21,21 @@
 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * 
-* (Created by Robert Schütze on 09.06.2021.)
+* (Created by Robert Schütze on 01.09.2021.)
 */
 
 
-#ifndef YAMD_MILESTONES_H
-#define YAMD_MILESTONES_H
+#ifndef YAMD_IH_H
+#define YAMD_IH_H
 
-#include "types.h"
-#include "xyz.h"
+#include "vector.h"
 #include "atoms.h"
-#include "verlet.h"
-#include "lj_direct_summation.h"
-#include "berendsen_thermostat.h"
-#include "useful_functions.h"
-#include <ctime>
-#include "lj.h"
-#include "neighbors.h"
-#include "gupta.h"
-#include "ih.h"
 
+#include <iostream>
 
-int MS4();
-int MS5(bool write_output, int sx, int sy, int sz);
-int MS6(bool write_output, int sx, int sy, int sz);
-int MS7(bool write_output, int sx, int sy, int sz);
+#include <stdlib.h>
+#include <libgen.h>
 
-#endif //YAMD_MILESTONES_H
+Atoms generate_cluster(int n = 10, double d = 2.88499, double mass = 196.96657);
+
+#endif //YAMD_IH_H
