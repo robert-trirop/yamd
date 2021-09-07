@@ -179,17 +179,18 @@ int MS6(bool write_output, int sx, int sy, int sz) {
 // MILESTONE 7
 int MS7(bool write_output, int sx, int sy, int sz) {
     double mass = 196.96657; // gold atom mass in g/mol or atomic units u (about the same) from http://www.periodensystem.info/elemente/gold/
-    double d = 2.88499; // lattice constant from reference clusters
+    // All distances are in Angstrom (10e-10 m)
+    double d = 2.885; // atomic distance from reference clusters - corresponds to 408 pm lattice constant
     double cutoff = 10.; // cutoff radius
-
-    // all time variables are multiplied with the unit 10.18 fs -> dt = 1 -> dt = 10.18 fs
-    double dt = 1.0; // timestep
-    double t_eq = 5000; // equilibration time
+    double tu = 10.18; // time unit in fs
+    // all time variables are multiplied with the unit 10.18 fs to get physical units -> dt = 1.0 -> dt = 10.18 fs
+    double dt = 5.0/tu; // timestep
+    double t_eq = 100000/tu; // equilibration time
     int steps_eq = t_eq / dt; // number of equilibration steps
-    double t_relax = 500; // relaxation time for each measurement
+    double t_relax = 5000/tu; // relaxation time for each measurement
     int steps_relax = t_relax / dt; // number of relaxation steps
     double dE = 0.002; // energy step in eV per atom
-    double tau = 20 * dt; // relaxation time of the thermostat
+    double tau = 200 * dt; // relaxation time of the thermostat
     int steps = 150; // total number of energy & temperature pair measurements
 
     std::vector<double> E_list(steps);
@@ -205,7 +206,7 @@ int MS7(bool write_output, int sx, int sy, int sz) {
     char filename[50];
 
     Atoms atoms(0); // initialize atoms object
-    int clusters[] = {5, 6, 8, 11, 14};
+    int clusters[] = {5, 6, 8, 11, 14, 9};
     for(int c = 0; c<5; c++) {
         // generate cluster atoms object
         atoms = generate_cluster(clusters[c], d, mass);
@@ -219,17 +220,28 @@ int MS7(bool write_output, int sx, int sy, int sz) {
             E_pot_val = gupta(atoms, neighbor_list, cutoff);
             verlet_step2(atoms, dt);
             berendsen_thermostat(atoms, 500, dt, tau);
-            if (i > 3 * steps_eq / 4) { T_col += T(atoms); } // collect temperatures after convergence to check average
+            //if (i > 3 * steps_eq / 4) { T_col += T(atoms); } // collect temperatures after convergence to check average
             std::cout << i << std::endl;
-            /*if(i%10==0){ // uncomment for trajectory output
-                sprintf(filename, "../Data/Out_MS7/traj%04d.xyz", i/10);
+            if(i%100==0){ // uncomment for trajectory output
+                sprintf(filename, "../Data/Out_MS7/traj%04d.xyz", i/100);
                 write_xyz(filename, atoms);
-            }*/
+            }
+        }
+
+        double t_add = 100000/tu; // additional relaxation time without thermostat
+        int steps_add = t_add / dt; // additional number of relaxation steps
+        for (int i = 1; i <= steps_add; i++) {
+            verlet_step1(atoms, dt);
+            neighbor_list.update(atoms);
+            E_pot_val = gupta(atoms, neighbor_list, cutoff);
+            verlet_step2(atoms, dt);
+            T_col += T(atoms);
+            std::cout << T(atoms) << std::endl;
         }
 
         E_initial = E_pot_val + E_kin(atoms);
         E_list[0] = E_initial / atoms.nb_atoms();
-        T_initial = T_col / (steps_eq / 4.);
+        T_initial = T_col / steps_add;
         T_list[0] = T_initial;
 
         // Energy sweep
@@ -251,6 +263,9 @@ int MS7(bool write_output, int sx, int sy, int sz) {
             E_list[n] = (E_pot_val + E_kin(atoms)) / atoms.nb_atoms();
             T_list[n] = 5. / 4. * T_col / steps_relax;
             std::cout << n << std::endl;
+
+            sprintf(filename, "../Data/Out_MS7/ES_%04d.xyz", n);
+            write_xyz(filename, atoms);
         }
 
         // Save temperatures and energies
