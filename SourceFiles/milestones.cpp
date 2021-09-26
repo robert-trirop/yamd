@@ -28,14 +28,13 @@
 
 // MILESTONE 4
 int MS4() {
-    double mass = 1.0;
+    double mass = 1.0; // default value in Atoms class
     double epsilon = 1.0;
     double sigma = 1.0;
 
-    double factor = sqrt(mass*sigma*sigma/epsilon);
-    double t_tot = 100*factor; // total simulation time
-    double dt = 0.01*factor; // timestep (0.03*factor for non constant energy)
-    double save_interval = 1*factor;
+    double t_tot = 100; // total simulation time
+    double dt = 0.01; // timestep (0.03 for non constant energy)
+    double save_interval = 1;
     int steps = t_tot/dt; // number of simulation steps
     int save_index = save_interval/dt; // save state every save_index
 
@@ -69,15 +68,14 @@ int MS4() {
 
 // MILESTONE 5
 int MS5(bool write_output, int sx, int sy, int sz) {
-    double mass = 1.0;
+    double mass = 1.0; // default value in Atoms class
     double epsilon = 1.0;
     double sigma = 1.0;
 
-    double factor = sqrt(mass*sigma*sigma/epsilon);
-    double t_tot = 50*factor; // total simulation time
-    double dt = 0.02*factor; // timestep (0.03*factor for non constant energy)
-    double tau = 10.*dt; // relaxation time
-    double save_interval = 0.2*factor; // save every 10 time steps
+    double t_tot = 50; // total simulation time
+    double dt = 0.02; // timestep (0.03 for non constant energy)
+    double tau = 50.*dt; // relaxation time
+    double save_interval = 0.2; // save every 10 time steps
     int steps = t_tot/dt; // number of simulation steps
     int save_index = save_interval/dt; // save state every save_index
 
@@ -96,13 +94,13 @@ int MS5(bool write_output, int sx, int sy, int sz) {
         E = lj_direct_summation(atoms, epsilon, sigma);
         verlet_step2(atoms, dt);
         E += E_kin(atoms);
-        berendsen_thermostat(atoms, 200, dt, tau);
+        berendsen_thermostat_LJ(atoms, 0.1, dt, tau);
 
         if(i%save_index == 0 && write_output){ // save state every save_index if output active
             char filename[50];
             sprintf(filename, "../Data/Out_MS5/traj%04d.xyz",i/save_index);
             write_xyz(filename, atoms);
-            std::cout << T(atoms) << std::endl; // print current temperature
+            std::cout << T_LJ(atoms) << std::endl; // print current temperature
         }
     }
     clock_t stop = clock(); // end clock
@@ -122,16 +120,15 @@ int MS5(bool write_output, int sx, int sy, int sz) {
 
 // MILESTONE 6
 int MS6(bool write_output, int sx, int sy, int sz) {
-    double mass = 1.0;
+    double mass = 1.0; // default value in Atoms class
     double epsilon = 1.0;
     double sigma = 1.0;
     double cutoff = 5.;
 
-    double factor = sqrt(mass*sigma*sigma/epsilon);
-    double t_tot = 50*factor; // total simulation time
-    double dt = 0.02*factor; // timestep (0.03*factor for non constant energy)
-    double tau = 10.*dt; // relaxation time
-    double save_interval = factor; // save every 10 time steps
+    double t_tot = 50; // total simulation time
+    double dt = 0.02; // timestep (0.03 for non constant energy)
+    double tau = 50.*dt; // relaxation time
+    double save_interval = 1.0; // save every 10 time steps
     int steps = t_tot/dt; // number of simulation steps
     int save_index = save_interval/dt; // save state every save_index
 
@@ -151,13 +148,13 @@ int MS6(bool write_output, int sx, int sy, int sz) {
         E = lj(atoms, neighbor_list, epsilon, sigma, cutoff);
         verlet_step2(atoms, dt);
         E += E_kin(atoms);
-        berendsen_thermostat(atoms, 200, dt, tau);
+        berendsen_thermostat_LJ(atoms, 0.1, dt, tau);
 
         if(i%save_index == 0 && write_output){ // save state every save_index if output active
             char filename[50];
             sprintf(filename, "../Data/Out_MS6/traj%04d.xyz", i/save_index);
             write_xyz(filename, atoms);
-            std::cout << T(atoms) << std::endl; // print current temperature
+            std::cout << T_LJ(atoms) << std::endl; // print current temperature
             std::cout << i/save_index << std::endl; // print current file number
         }
     }

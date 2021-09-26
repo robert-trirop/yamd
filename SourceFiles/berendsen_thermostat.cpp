@@ -29,3 +29,7 @@
 void berendsen_thermostat(Atoms &atoms, double T0, double dt, double tau){
     atoms.velocities *= sqrt(1+(T0/T(atoms)-1)*dt/tau);
 }
+
+void berendsen_thermostat_LJ(Atoms &atoms, double T0, double dt, double tau){
+    atoms.velocities *= sqrt(1+(T0/T_LJ(atoms)-1)*dt/tau);
+}

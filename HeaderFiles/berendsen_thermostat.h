@@ -34,5 +34,7 @@
 
 // inputs: target temperature T0, timestep dt and relaxation time tau
 void berendsen_thermostat(Atoms &atoms, double T0, double dt, double tau);
+// Lennard-Jones edition with kB=1
+void berendsen_thermostat_LJ(Atoms &atoms, double T0, double dt, double tau);
 
 #endif //YAMD_BERENDSEN_THERMOSTAT_H

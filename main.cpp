@@ -40,7 +40,7 @@ int main() {
 
     // for(int i = 1; i <= 50; i++){MS6(false, 4, 5, i);} // uncomment for milestone 6 time scaling curve
 
-    MS7(true, 10, 10, 10); // uncomment for milestone 7 with file output
+    // MS7(true, 10, 10, 10); // uncomment for milestone 7 with file output
 
     return 0;
 }
