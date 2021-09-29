@@ -29,8 +29,9 @@
 #include "HeaderFiles/types.h"
 #include "HeaderFiles/milestones.h"
 
+// this main contains all milestones: uncomment line-wise to get corresponding simulation
 int main() {
-    // MS4(); // uncomment for milestone 4
+    MS4(); // uncomment for milestone 4
 
     // MS5(true, 5, 5, 5); // uncomment for milestone 5 with file output
 
@@ -40,7 +41,7 @@ int main() {
 
     // for(int i = 1; i <= 50; i++){MS6(false, 4, 5, i);} // uncomment for milestone 6 time scaling curve
 
-    // MS7(true, 10, 10, 10); // uncomment for milestone 7 with file output
+    // MS7(); // uncomment for milestone 7
 
     return 0;
 }

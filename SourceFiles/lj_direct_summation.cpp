@@ -31,7 +31,7 @@ double lj_direct_summation(Atoms &atoms, double epsilon, double sigma){
     atoms.forces.setZero();
     double ssq = sigma*sigma; // only sigma^2 is used (pre-computation)
     for(int j = 0; j<atoms.nb_atoms(); j++) {// Looping over the upper triangle of the pair matrix
-        for (int i = j+1; i < atoms.nb_atoms(); i++) {
+        for (int i = j+1; i < atoms.nb_atoms(); i++) { // refer to report for details
                 Vector_t rij_v = atoms.positions.col(j)-atoms.positions.col(i);
                 double rij_sq = rij_v(0)*rij_v(0)+rij_v(1)*rij_v(1)+rij_v(2)*rij_v(2); // no sqrt, because only rij^2 is needed
                 E += 4.*epsilon*(pow(ssq/rij_sq,6.)-pow(ssq/rij_sq,3.)); //no 1/2, because the pairs are not counted twice

@@ -35,6 +35,7 @@ double T(Atoms &atoms){
     return 2./3.* E_kin(atoms)/(kBeV*atoms.nb_atoms());
 }
 
+// calculate current temperature based on the kinetic energy of the atoms for LJ potential
 double T_LJ(Atoms &atoms){
     return 2./3.* E_kin(atoms)/(atoms.nb_atoms());
 }

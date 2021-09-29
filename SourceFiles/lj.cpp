@@ -33,7 +33,7 @@ double lj(Atoms &atoms, NeighborList &neighbor_list, double epsilon, double sigm
     double ssq = sigma*sigma; // only sigma^2 is used (pre-computation)
     double cutoff_sq = cutoff*cutoff; // only cutoff^2 is used
     double E_cutoff = 4.*epsilon*(pow(ssq/cutoff_sq,6.)-pow(ssq/cutoff_sq,3.)); // potential energy at the cutoff radius
-    for(auto[i, j]: neighbor_list) {
+    for(auto[i, j]: neighbor_list) { // refer to report for details
         if (i < j) {
             Vector_t rij_v = atoms.positions.col(j)-atoms.positions.col(i);
             double rij_sq = rij_v(0)*rij_v(0)+rij_v(1)*rij_v(1)+rij_v(2)*rij_v(2); // no sqrt, because only rij^2 is needed

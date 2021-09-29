@@ -245,10 +245,9 @@ Atoms generate_cluster(int n, double d, double mass)
 
     //generate
     for( int i=0; i<=n; i++ ) ih( i );
-
+    // the following part is modified to output as an atom object
     Positions_t positions{3, num};
     Names_t names(num);
-    //output with .xyz format
 
     for( int i=0; i<num; i++ ){
         positions(0,i) = d*p[i].v.x;

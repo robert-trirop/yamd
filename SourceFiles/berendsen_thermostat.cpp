@@ -26,10 +26,12 @@
 
 #include "../HeaderFiles/berendsen_thermostat.h"
 
+// velocity rescaling for the EAM potential (real units)
 void berendsen_thermostat(Atoms &atoms, double T0, double dt, double tau){
     atoms.velocities *= sqrt(1+(T0/T(atoms)-1)*dt/tau);
 }
 
+// velocity rescaling for the LJ potential (LJ units)
 void berendsen_thermostat_LJ(Atoms &atoms, double T0, double dt, double tau){
     atoms.velocities *= sqrt(1+(T0/T_LJ(atoms)-1)*dt/tau);
 }

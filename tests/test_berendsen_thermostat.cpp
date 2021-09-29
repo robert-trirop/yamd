@@ -29,7 +29,8 @@
 #include "HeaderFiles/lj_direct_summation.h"
 #include "HeaderFiles/berendsen_thermostat.h"
 
-
+// launch single atom with v = (1, 1, 1), bring it to target temperature = 2.0
+// and check whether it follows the desired exponential curve
 TEST(BerendsenThermostatTest, SingleAtomExponentialDecay) {
     double mass = 1.0;
     double epsilon = 1.0;
@@ -48,7 +49,7 @@ TEST(BerendsenThermostatTest, SingleAtomExponentialDecay) {
     double T_curr; // current temperature
     double T_calc; // calculated temperature with exponential decay
 
-    for(int i=1; i<=steps; i++){
+    for(int i=1; i<=steps; i++){ // main sim loop
         T_curr = T_LJ(atoms);
         T_calc = T_target+(T_init-T_target)*exp(-t/tau);
         std::cout << T_curr << std::endl; // print current temperature
@@ -62,7 +63,8 @@ TEST(BerendsenThermostatTest, SingleAtomExponentialDecay) {
     }
 }
 
-
+// equilibrate an atom cluster to T = 0.1 epsilon
+// and check whether T converges to the desired T
 TEST(BerendsenThermostatTest, FinalConvergence) {
     double mass = 1.0;
     double epsilon = 1.0;
@@ -74,9 +76,9 @@ TEST(BerendsenThermostatTest, FinalConvergence) {
     int steps = t_tot/dt; // number of simulation steps
     double T_target = 0.1;
 
-    Atoms atoms(lattice(5, 5, 5, sigma*1.1));
+    Atoms atoms(lattice(5, 5, 5, sigma*1.12)); // initialize 5x5x5 lattice
 
-    for(int i=1; i<=steps; i++){
+    for(int i=1; i<=steps; i++){ // main sim loop
         verlet_step1(atoms, dt);
         lj_direct_summation(atoms, epsilon, sigma);
         verlet_step2(atoms, dt);
