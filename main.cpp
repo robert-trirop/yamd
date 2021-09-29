@@ -33,7 +33,7 @@
 int main() {
     MS4(); // uncomment for milestone 4
 
-    // MS5(true, 5, 5, 5); // uncomment for milestone 5 with file output
+    // MS5(true, 5, 5, 5); // uncomment for milestone 5 with file output, change the 5,5,5 to equilibrate different cluster sizes
 
     // for(int i = 1; i <= 25; i++){MS5(false, 4, 5, i);} // uncomment for milestone 5 time scaling curve
 
